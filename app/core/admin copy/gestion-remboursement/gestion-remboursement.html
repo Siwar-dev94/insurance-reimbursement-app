@@ -1,0 +1,130 @@
+
+<dx-speed-dial-action
+  icon="add"
+  hint="Ajouter un remboursement"
+  (onClick)="Ajout = true"
+  position="bottom right"
+></dx-speed-dial-action>
+
+
+<dx-data-grid
+  [dataSource]="remboursements"
+  [paging]="{ pageSize: 5 }"
+  [filterRow]="{ visible: true }"
+  [showColumnHeaders]="true"
+>
+  <dxi-column dataField="id" caption="ID" [allowEditing]="false"></dxi-column>
+  <dxi-column dataField="userName" caption="userName"></dxi-column>
+  <dxi-column dataField="date" dataType="date"></dxi-column>
+  <dxi-column dataField="montant" caption="Montant" format="currency"></dxi-column>
+  <dxi-column
+    dataField="statut"
+    [lookup]="{ dataSource: statutOptions }"
+    caption="Statut"
+  ></dxi-column>
+  
+
+
+    <dxi-column dataField="documents" caption="Document"></dxi-column>
+
+
+  <dxi-column type="buttons">
+  <dxi-button
+    hint="Modifier"
+    icon="edit"
+    [onClick]="editRemboursement"
+  ></dxi-button>
+ 
+</dxi-column>
+
+</dx-data-grid>
+
+
+<dx-popup
+  [(visible)]="Ajout"
+  title="Ajouter un remboursement"
+  [width]="600"
+  [height]="400"
+  [showCloseButton]="true"
+  [dragEnabled]="true"
+>
+  <dx-form
+    [formData]="newRemboursement"
+    [colCount]="1"
+    labelLocation="top"
+  >
+    <dxi-item dataField="userName" label="userName"></dxi-item>
+    <dxi-item dataField="date" editorType="dxDateBox" label="Date"></dxi-item>
+    <dxi-item dataField="montant" editorType="dxNumberBox" label="Montant"></dxi-item>
+    <dxi-item
+      dataField="statut"
+      editorType="dxSelectBox"
+      [editorOptions]="{ items: statutOptions }"
+      label="Statut"
+    ></dxi-item>
+     <dxi-item>
+  <dx-file-uploader
+    selectButtonText="Ajouter un document"
+    labelText="Document"
+    [multiple]="false"
+    accept="image/*,.pdf"
+    uploadMode="useForm"
+    (onValueChanged)="onFilesSelected($event)"
+  ></dx-file-uploader>
+</dxi-item>
+
+  </dx-form>
+
+  <div style="text-align:right; margin-top: 15px;">
+    <button (click)="ajouterRemboursement()" class="btn-valider">Valider</button>
+  </div>
+</dx-popup>
+
+<dx-popup
+  [(visible)]="modifierPopupVisible"
+  title="Modifier remboursement"
+  [width]="600"
+  [height]="400"
+  [showCloseButton]="true"
+  [dragEnabled]="true"
+>
+  <dx-form
+    *ngIf="remboursementEnCours"
+    [formData]="remboursementEnCours"
+    [colCount]="1"
+    labelLocation="top"
+  >
+    <dxi-item dataField="userName" label="Utilisateur"></dxi-item>
+    <dxi-item dataField="date" editorType="dxDateBox" label="Date"></dxi-item>
+    <dxi-item dataField="montant" editorType="dxNumberBox" label="Montant"></dxi-item>
+    <dxi-item
+      dataField="statut"
+      editorType="dxSelectBox"
+      [editorOptions]="{ items: statutOptions }"
+      label="Statut"
+    ></dxi-item>
+
+    <dxi-item>
+      <dx-file-uploader
+        selectButtonText="Changer document"
+        labelText="Document"
+        [multiple]="false"
+        accept="image/*,.pdf"
+        uploadMode="useForm"
+        (onValueChanged)="onFichierModifie($event)"
+      ></dx-file-uploader>
+    </dxi-item>
+  </dx-form>
+
+  <div style="text-align:right; margin-top: 15px;">
+    <button (click)="validerModification()" class="btn-valider">Valider</button>
+  </div>
+</dx-popup>
+
+
+
+  
+
+
+
+

@@ -1,0 +1,38 @@
+.btn-add {
+  margin-bottom: 10px;
+  padding: 8px 12px;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.btn-valider {
+  background-color: #43a047;
+  color: white;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+::ng-deep .dx-datagrid-headers {
+  background-color: #005e9c !important; /* bleu */
+  color: white !important;              /* texte blanc */
+  font-weight: bold;
+}
+
+::ng-deep .dx-datagrid-headers .dx-header-row td {
+  color: white !important;
+  background-color: #005e9c !important;
+  border-bottom: 1px solid #004080;
+  font-size: 15px;
+}
+::ng-deep .dx-datagrid-headers {
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  overflow: hidden;
+}
+
+

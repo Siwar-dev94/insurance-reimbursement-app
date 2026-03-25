@@ -1,0 +1,38 @@
+  <div class="form-container">
+      <h2>Créer votre compte</h2>
+      <dx-form
+        [formData]="formData"
+        [colCount]="colCount"
+        labelLocation="top"
+      >
+        <dxi-item dataField="civilite" editorType="dxSelectBox" [editorOptions]="{ items: ['Mr', 'Mme'], placeholder: 'Sélectionnez la civilité' }" [isRequired]="true"></dxi-item>
+        <dxi-item dataField="nationalite" editorType="dxTextBox" [isRequired]="true"></dxi-item>
+        <dxi-item dataField="nom" editorType="dxTextBox" [isRequired]="true"></dxi-item>
+        <dxi-item dataField="prenom" editorType="dxTextBox" [isRequired]="true"></dxi-item>
+        <dxi-item dataField="dateNaissance" editorType="dxDateBox" [isRequired]="true"></dxi-item>
+        <dxi-item dataField="email" editorType="dxTextBox" [isRequired]="true"></dxi-item>
+        <dxi-item dataField="telephone" editorType="dxTextBox" [isRequired]="true"></dxi-item>
+        <dxi-item dataField="pieceIdentite" editorType="dxTextBox" [isRequired]="true"></dxi-item>
+
+        <dxi-item>
+          <dx-button
+            text="Valider"
+            type="success"
+            stylingMode="contained"
+            (onClick)="submit()"
+          ></dx-button>
+        </dxi-item>
+
+        <dxi-item>
+  <dx-button
+    text="Retour à la connexion"
+     type="success"       
+    stylingMode="contained"
+
+    (onClick)="goBack()"
+  ></dx-button>
+</dxi-item>
+
+      </dx-form>
+    </div>
+

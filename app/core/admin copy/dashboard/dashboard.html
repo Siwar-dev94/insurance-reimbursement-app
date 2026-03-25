@@ -1,0 +1,58 @@
+<div class="statistiques">
+  <h2>Tableau de bord</h2>
+  <div class="grid">
+    <div class="card">Nombre d'assurés : <strong>{{ totalAssures }}</strong></div>
+    <div class="card">Nombre de remboursements : <strong>{{ totalRemboursements }}</strong></div>
+    <div class="card">Montant total remboursé : <strong>{{ montantTotal | currency: 'TND' }}</strong></div>
+  </div>
+
+  <dx-chart
+    [dataSource]="remboursementsParMois"
+    title="Montant remboursé par mois"
+  >
+  
+ 
+    <dxi-series
+      argumentField="mois"
+      valueField="montant"
+      type="bar"
+      color="#4CAF50"
+    ></dxi-series>
+  </dx-chart>
+
+  <dx-chart
+    [dataSource]="remboursementsParTrimestre"
+    title="Montant remboursé par trimestre"
+  >
+    <dxi-series
+      argumentField="trim"
+      valueField="montant"
+      type="bar"
+      color="#2196F3"
+    ></dxi-series>
+  </dx-chart>
+</div>
+
+<dx-pie-chart
+  [dataSource]="statsParStatut"
+  title="Répartition des statuts de remboursement"
+  palette="Soft Pastel"
+>
+  <dxi-series
+    argumentField="statut"
+    valueField="nombre"
+  ></dxi-series>
+
+  <dxo-tooltip [enabled]="true"></dxo-tooltip>
+ <dxo-legend
+  [visible]="true"
+  horizontalAlignment="right"
+  verticalAlignment="top"
+></dxo-legend>
+
+
+</dx-pie-chart>
+
+
+
+  

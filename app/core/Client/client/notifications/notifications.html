@@ -1,0 +1,40 @@
+<h2 class="titre">🔔 Notifications</h2>
+
+<div *ngIf="notifications.length > 0; else vide">
+  <div
+    class="notif-card"
+    *ngFor="let n of notifications; let i = index"
+    [ngClass]="n.type"
+  >
+    <div class="notif-header">
+      <span class="icon">
+        {{ n.type === 'alerte' ? '⚠️' : n.type === 'offre' ? '🎁' : '📅' }}
+      </span>
+      <div>
+        <h4>{{ n.titre }}</h4>
+        <p class="date">{{ n.date }}</p>
+      </div>
+    </div>
+    <p class="message">{{ n.message }}</p>
+    <dx-button
+      text="Supprimer"
+      icon="trash"
+      stylingMode="text"
+      type="danger"
+      (onClick)="supprimer(i)"
+    ></dx-button>
+  </div>
+
+  <dx-button
+    text="🧹 Tout effacer"
+    type="danger"
+    stylingMode="contained"
+    class="clear-all"
+    (onClick)="toutEffacer()"
+  ></dx-button>
+</div>
+
+<ng-template #vide>
+  <p class="vide-message">Aucune notification pour le moment.</p>
+</ng-template>
+

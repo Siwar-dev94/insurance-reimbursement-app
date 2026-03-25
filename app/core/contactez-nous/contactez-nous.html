@@ -1,0 +1,101 @@
+<h2>CONTACTEZ-NOUS</h2>
+<div class="top-actions">
+  <!-- Bouton RETOUR: seulement si pas depuis login ET returnTo commence par /client -->
+  <dx-button
+    *ngIf="!fromLogin && returnTo && returnTo.startsWith('/client')"
+    text="Retour"
+    icon="arrowleft"
+    type="default"
+    stylingMode="contained"
+    class="btn-retour"
+    (onClick)="goBack()">
+  </dx-button>
+
+  <!-- Bouton ANNULER: seulement si depuis login -->
+  <dx-button
+    *ngIf="fromLogin"
+    text="Annuler"
+    icon="close"
+    type="danger"
+    stylingMode="contained"
+    class="btn-annuler"
+    (onClick)="cancel()">
+  </dx-button>
+</div>
+<dx-form [formData]="contactForm" [colCount]="2" labelLocation="top">
+
+
+   <dxi-item dataField="civilite *" editorType="dxSelectBox"
+            [editorOptions]="{
+              dataSource: civiliteOptions,
+              searchEnabled: true,
+              showClearButton: true,
+              placeholder: 'Sélectionner'
+            }">
+    <dxo-label text="Civilité *"></dxo-label>
+  </dxi-item>
+
+
+  <dxi-item dataField="nom">
+    <dxo-label text="Nom *"></dxo-label>
+  </dxi-item>
+
+  
+  <dxi-item dataField="prenom">
+    <dxo-label text="Prénom *"></dxo-label>
+  </dxi-item>
+
+
+  <dxi-item dataField="mobile">
+    <dxo-label text="Mobile *"></dxo-label>
+  </dxi-item>
+
+  
+  <dxi-item dataField="email">
+    <dxo-label text="E-mail *"></dxo-label>
+  </dxi-item>
+
+ 
+ <dxi-item dataField="besoin" editorType="dxSelectBox"
+            [editorOptions]="{
+              dataSource: besoinOptions,
+              searchEnabled: true,
+              showClearButton: true,
+              placeholder: 'Veuillez indiquer votre besoin'
+            }">
+    <dxo-label text="Besoin *"></dxo-label>
+  </dxi-item>
+ 
+  <dxi-item dataField="cin">
+    <dxo-label text="N°CIN ou N°Passeport/N°Carte séjour"></dxo-label>
+  </dxi-item>
+
+
+  <dxi-item dataField="message" [colSpan]="2" editorType="dxTextArea"
+            [editorOptions]="{ height: 100 }">
+    <dxo-label text="Message *"></dxo-label>
+  </dxi-item>
+
+
+  
+  <dxi-item [colSpan]="2">
+    <dx-check-box
+      text="En soumettant ce formulaire, j'accepte..."
+      [(value)]="isAccepted">
+    </dx-check-box>
+  </dxi-item>
+
+  
+  <dxi-item [colSpan]="2">
+    <div class="btns">
+      <dx-button text="Réinitialiser"  type="default" (onClick)="resetForm()"></dx-button>
+      <dx-button text="Valider"  type="success" (onClick)="submitForm()"></dx-button>
+    </div>
+  </dxi-item>
+
+</dx-form>
+<router-outlet></router-outlet>
+
+
+
+

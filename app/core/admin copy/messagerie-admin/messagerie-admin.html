@@ -1,0 +1,17 @@
+<h2>Messagerie (Admin)</h2>
+<div class="chat-box">
+  <div class="messages-history" #messagesContainer>
+    <div *ngFor="let msg of messages" class="message" [ngClass]="msg.sender">
+      <span class="bubble">{{ msg.text }}</span>
+    </div>
+  </div>
+
+  <dx-text-area
+    [(value)]="nouveauMessage"
+    placeholder="Répondre au client..."
+    height="90">
+  </dx-text-area>
+
+  <dx-button text="Envoyer" icon="send" (onClick)="envoyerMessage()"></dx-button>
+</div>
+

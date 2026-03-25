@@ -1,0 +1,110 @@
+::ng-deep .dx-speed-dial-action {
+  margin: 20px;
+}
+
+::ng-deep .dx-datagrid {
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  font-family: "Segoe UI", sans-serif;
+}
+
+::ng-deep .dx-datagrid-headers {
+  background-color: #005e9c;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+
+::ng-deep .dx-datagrid .dx-row.dx-data-row:nth-child(even) {
+  background-color: #f5faff;
+}
+::ng-deep .dx-datagrid .dx-row.dx-data-row:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+
+::ng-deep .dx-datagrid .dx-row.dx-data-row:hover {
+  background-color: #e1f0fb;
+  cursor: pointer;
+}
+
+
+::ng-deep .dx-datagrid .dx-link {
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+::ng-deep .dx-link.dx-link-edit {
+  background-color: #e6f4ea;
+  color: #2e7d32;
+}
+
+::ng-deep .dx-link.dx-link-edit:hover {
+  background-color: #c8e6c9;
+}
+
+::ng-deep .dx-link.dx-link-delete {
+  background-color: #fcebea;
+  color: #c62828;
+}
+
+::ng-deep .dx-link.dx-link-delete:hover {
+  background-color: #f8d7da;
+}
+
+
+::ng-deep .dx-page {
+  color: #005e9c;
+  font-weight: 600;
+}
+
+::ng-deep .dx-page.dx-selection {
+  background-color: #cde6f9;
+  border-radius: 8px;
+}
+
+
+::ng-deep .dx-datagrid-search-panel input {
+  border-radius: 8px;
+  border: 1px solid #0078d4;
+  padding: 6px 10px;
+}
+
+
+::ng-deep .dx-datagrid-rowsview td {
+  border-bottom: 1px solid #d0e0f0;
+}
+
+::ng-deep .dx-datagrid .dx-row.dx-data-row {
+  color: #000 !important;
+}
+
+
+::ng-deep .dx-datagrid td {
+  font-size: 14px;
+}
+::ng-deep .dx-datagrid-headers {
+  display: table-header-group !important;
+  visibility: visible !important;
+  height: auto !important;
+  opacity: 1 !important;
+}
+::ng-deep .dx-datagrid-headers {
+  display: table-header-group !important;
+  visibility: visible !important;
+  height: auto !important;
+  opacity: 1 !important;
+   min-height: 40px !important;
+}
+::ng-deep .dx-header-row {
+  display: table-row !important;
+  visibility: visible !important;
+  background-color: #005e9c !important;
+  color: white !important;
+}
+
+
+

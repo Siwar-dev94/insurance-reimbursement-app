@@ -1,0 +1,19 @@
+<h2>Contact & Messagerie (Client)</h2>
+<div class="chat-box">
+  <div *ngIf="agentEnLigne" class="chat-online">💬 Agent en ligne</div>
+  <div *ngIf="!agentEnLigne" class="chat-offline">⛔ Aucun agent disponible</div>
+
+  <div class="messages-history" #messagesContainer>
+    <div *ngFor="let msg of messages" class="message" [ngClass]="msg.sender">
+      <span class="bubble">{{ msg.text }}</span>
+    </div>
+  </div>
+
+  <dx-text-area
+    [(value)]="nouveauMessage"
+    placeholder="Posez votre question..."
+    height="90">
+  </dx-text-area>
+
+  <dx-button text="Envoyer" icon="send" (onClick)="envoyerMessage()"></dx-button>
+</div>

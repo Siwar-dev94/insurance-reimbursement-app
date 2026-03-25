@@ -1,0 +1,92 @@
+<div class="app">
+  
+  <div class="login-wrapper ">
+<h1 class="title">{{title}}</h1><br>
+<p class="subtitle">Bienvenue sur <span class="brand">TuniSanté Pro</span><br>
+Votre espace santé en ligne</p>
+
+
+
+<dx-form
+     #loginForm
+    [formData]="user"
+    [colCount]="1"  labelLocation="top">
+
+    <dxi-item dataField="email"  editorType="dxTextBox"  >
+        <dxo-label text=" Email"></dxo-label>
+        <dxi-validation-rule type="required" message="L'email est requis"></dxi-validation-rule>
+  <dxi-validation-rule type="email" message="Format d'email invalide"></dxi-validation-rule>
+    </dxi-item>
+    
+      <dxi-item dataField="motDePasse" editorType="dxTextBox"  [editorOptions]="passwordOptions" name="motDePasse"
+    >
+          <dxo-label text="Mot de Passe"></dxo-label>
+  <dxi-validation-rule type="required" message="Le mot de passe est requis"></dxi-validation-rule>
+  <dxi-validation-rule type="custom" [validationCallback]="validatePassword.bind(this)"></dxi-validation-rule>
+</dxi-item>
+
+    
+  <ul class="password-conditions">
+        <li [class.valid]="passwordCriteria.length">Au moins 8 caractères</li>
+        <li [class.valid]="passwordCriteria.uppercase">Une lettre majuscule</li>
+        <li [class.valid]="passwordCriteria.lowercase">Une lettre minuscule</li>
+        <li [class.valid]="passwordCriteria.number">Un chiffre</li>
+        <li [class.valid]="passwordCriteria.special">Un caractère spécial</li>
+      </ul>
+
+    <dxi-item>
+      <div  class="btn-container">
+  <dx-button text="Login"  (onClick)="login()">
+</dx-button>
+</div> </dxi-item>
+
+</dx-form>
+
+
+
+ <div class="actions-wrapper">
+  <div class="no-account">
+    <span>Vous n'avez pas de compte ?</span>
+    <dx-button
+      text="Créer votre compte "
+      type="normal"
+      stylingMode="contained"
+      class="create-account-btn"
+      [width]="250"
+      (onClick)="goToSignup()"
+    ></dx-button>
+  </div>
+
+
+
+
+  <hr class="separator-line" />
+
+<div class="support-row">
+  <span class="support-text">Avez-vous besoin d'aide ? <br><span class="support-phone">📞 82 100 001</span></span>
+  
+
+
+    <div class="contact-row">
+      <dx-button
+        text="Contactez-nous"
+        icon="tel"
+        type="normal"
+        stylingMode="contained"
+        class="contact-btn"
+        (onClick)="contactSupport()"
+      ></dx-button>
+     
+    </div>
+</div>
+
+</div>
+
+
+</div>
+
+
+
+
+</div>
+

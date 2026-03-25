@@ -1,0 +1,99 @@
+<div 
+  class="content-wrapper"
+  [ngStyle]="{
+  'background-image': 'url(assets/m.png)',
+  'background-size': 'cover',
+  'background-position': 'center'
+  }">
+
+
+
+<div  *ngIf="isAdminPage" class="info-bar">
+  <div class="assurance-info">
+    <img src="assets/lo.png" alt="Logo Assurance" />
+    <div class="company-branding">
+  <span class="company-name">TuniSanté Pro</span>
+  <span class="company-tagline"> Assurance Maladie Moderne</span>
+</div>
+  </div>
+     <div class="admin-info">
+    <img src="assets/hello.jpg" alt="Admin Photo" id="admin-photo-bar"/>
+    <div class="admin-details">
+    <span>{{ admin.name }}</span>
+    <span>{{admin.fonction}}</span>
+    </div>
+    <dx-button
+      icon="user"
+      hint="Voir les infos admin"
+      stylingMode="text"
+      (onClick)="toggleAdminCard()"
+    ></dx-button>
+  </div>
+  </div>
+
+
+
+ 
+ 
+
+
+
+<div *ngIf="showAdminCard" class="admin-card"  [class.show-admin-card]="showAdminCard">
+  <img src="assets/hello.jpg" alt="Photo Admin" class="admin-card-photo" id="admin-photo-card" />
+   <!-- Upload photo seulement en mode édition -->
+    <div *ngIf="editMode" class="photo-upload">
+      <input type="file" accept="image/*" (change)="onPhotoSelected($event)" />
+    </div>
+
+    <dx-form
+  [(formData)]="admin"
+  [readOnly]="!editMode"
+  labelLocation="top"
+  [colCount]="1">
+
+    <dxi-item dataField="name" [label]="{ text: 'Nom' }"></dxi-item>
+    <dxi-item dataField="fonction" [label]="{ text: 'Fonction' }"></dxi-item>
+    <dxi-item dataField="telephone" [label]="{ text: 'Téléphone' }"></dxi-item>
+    <dxi-item dataField="adresse" [label]="{ text: 'Adresse' }"></dxi-item>
+  </dx-form>
+  
+  <dx-button
+  *ngIf="!editMode"
+  text="Modifier"
+  type="default"
+  stylingMode="outlined"
+  (onClick)="editMode = true"
+></dx-button>
+
+<dx-button
+  *ngIf="editMode"
+  text="Enregistrer"
+  type="success"
+  stylingMode="contained"
+  (onClick)="saveAdminInfo()"
+></dx-button>
+
+<dx-button
+  text="Fermer"
+  type="normal"
+  stylingMode="outlined"
+  (onClick)="closeAdminCard()"
+></dx-button>
+
+</div>
+
+
+
+<div *ngIf="showTree" class="fixed-tree">
+  <dx-tree-view
+    [items]="treeItems"
+    (onItemClick)="OnItemClick($event)">
+  </dx-tree-view>
+
+</div>
+
+<div class="content">
+  <router-outlet></router-outlet>
+</div>
+
+

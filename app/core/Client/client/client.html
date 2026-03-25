@@ -1,0 +1,59 @@
+<dx-toolbar class="top-toolbar shadow">
+  <dxi-item location="before">
+    <div class="client-info-flex">
+      <img [src]="client.photo" alt="Photo" class="avatar" />
+      <span class="client-name">{{ client.nom }} {{ client.prenom }}</span>
+    </div>
+  </dxi-item>
+  <dxi-item location="after">
+    <dx-button text="Profil" icon="user" stylingMode="contained" (onClick)="goToProfil()"></dx-button>
+  </dxi-item>
+</dx-toolbar>
+
+<div class="navbar shadow">
+  <dx-toolbar>
+    <dxi-item *ngFor="let item of treeItems" location="before">
+      <dx-button
+        [text]="item.text"
+        class="nav-button"
+        [ngClass]="{ 'active': activePath === item.path }"
+        stylingMode="text"
+        (onClick)="navigate(item.path)"
+      ></dx-button>
+    </dxi-item>
+  </dx-toolbar>
+</div>
+
+<div class="main-scroll-container">
+  <div class="main-container">
+    <div class="left-panel" *ngIf="showProfilCard">
+      <div class="user-card">
+        <img [src]="client.photo" alt="Avatar" class="user-photo" />
+        <div class="user-info">
+          <h4>{{ client.nom }} {{ client.prenom }}</h4>
+          <p><strong>CIN :</strong> {{ client.cin }}</p>
+          <p><strong>Date de naissance :</strong> {{ client.dateNaissance }}</p>
+          <p><strong>Email :</strong> {{ client.email }}</p>
+          <p><strong>Téléphone :</strong> {{ client.telephone }}</p>
+          <dx-button text="Modifier mes informations" icon="edit" type="default" (onClick)="edit()"></dx-button>
+        </div>
+      </div>
+    </div>
+
+    <div class="client-content shadow">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>
+
+<!-- BOUTON CONTACTEZ-NOUS FLOTTANT -->
+<div class="floating-contact-btn">
+  <dx-button
+    text="Contactez-nous"
+    icon="tel"
+    type="default"
+    stylingMode="contained"
+    class="contact-button"
+    (onClick)="goContact()"
+  ></dx-button>
+</div>

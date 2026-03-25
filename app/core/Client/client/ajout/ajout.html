@@ -1,0 +1,19 @@
+<h2>Nouvelle demande de remboursement</h2>
+
+<div class="form">
+ <dx-number-box [(value)]="montant" placeholder="Montant demandé (TND)"></dx-number-box>
+
+
+  <dx-file-uploader
+    [value]="fileUploaderValue"
+    [selectButtonText]="'Choisir un fichier'"
+    [labelText]="'Justificatif'"
+    [accept]="'.jpg,.jpeg,.png,.pdf'"
+    [uploadMode]="'useForm'"
+    (onValueChanged)="onFileSelected($event)"
+  ></dx-file-uploader>
+
+  <dx-button text="Envoyer" type="success" (onClick)="envoyer()"></dx-button>
+</div>
+
+

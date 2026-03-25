@@ -1,0 +1,12 @@
+.success-container {
+      max-width: 600px;
+      margin: 80px auto;
+      padding: 30px;
+      background-color: #e6ffed;
+      border: 1px solid #b2f5cb;
+      border-radius: 10px;
+      text-align: center;
+    }
+    h2 {
+      color: #38a169;
+    }

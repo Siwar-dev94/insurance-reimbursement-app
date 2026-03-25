@@ -1,0 +1,31 @@
+<h2>Modifier mes informations</h2>
+<div class="photo-upload">
+  <img *ngIf="photoPreview" [src]="photoPreview" alt="Photo de profil" class="photo-preview">
+  <dx-file-uploader
+    selectButtonText="Choisir une photo"
+    labelText=""
+    accept=".jpg,.jpeg,.png"
+    [uploadMode]="'useForm'"
+    [multiple]="false"
+    (onValueChanged)="onPhotoSelected($event)"
+  ></dx-file-uploader>
+</div>
+
+<dx-form
+  [formData]="form.value"
+  [items]="[
+    { dataField: 'nom', label: { text: 'Nom' } },
+    { dataField: 'prenom', label: { text: 'Prénom' } },
+    { dataField: 'cin', label: { text: 'CIN' } },
+    { dataField: 'dateNaissance', label: { text: 'Date de naissance' }, editorType: 'dxDateBox' },
+    { dataField: 'adresse', label: { text: 'Adresse' } },
+    { dataField: 'telephone', label: { text: 'Téléphone' } },
+    { dataField: 'email', label: { text: 'Email' } }
+  ]"
+  (onFieldDataChanged)="onFieldChanged($event)"
+></dx-form>
+
+<div class="actions">
+  <dx-button text="Enregistrer" type="success" (onClick)="onSubmit()"></dx-button>
+  <dx-button text="Annuler" type="normal" (onClick)="onCancel()" class="ml-2"></dx-button>
+</div> 

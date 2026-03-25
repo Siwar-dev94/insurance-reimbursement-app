@@ -1,0 +1,202 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Montserrat', 'Segoe UI', Tahoma, sans-serif;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+      
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* centre horizontalement */
+   justify-content: flex-start; /* pousse les éléments vers la gauche */
+              
+  height: 100vh;            /* pleine hauteur */
+  margin-right: 700px; 
+  
+      
+}
+
+/* Titre LOGIN */
+.title {
+  font-family: 'Poppins', sans-serif;
+  text-align: center;
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  background: linear-gradient(90deg, #004d99, #00d4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 2px 10px rgba(0, 114, 255, 0.4);
+  margin: 0;            
+  margin-bottom: 1px;
+}
+
+
+.subtitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #444;
+  text-align: center;
+  line-height: 1.6;
+  animation: fadeIn 1.2s ease-in-out;
+    margin-top: -15px;
+    margin-left:auto;
+}
+
+.subtitle .brand {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-style: italic;
+  background: linear-gradient(90deg, #00c6ff, #004d99);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0px 0px 12px rgba(0, 114, 255, 0.4);
+  margin: 0;            /* supprime marge par défaut */
+  margin-top: 0;        /* colle mieux au titre */
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+
+
+
+
+
+
+
+
+
+
+.login-wrapper {
+  background-color: transparent;   
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow:  0px 4px 12px rgba(0, 0, 0, 0.2);  
+  border-top: 2px solid #004d99;
+  backdrop-filter: blur(5px); /* effet glass */
+
+}
+
+
+
+.actions-wrapper {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.no-account, .contac {
+  margin: 20px 0;
+}
+
+.create-account-btn, .contact-btn {
+  margin-top: 10px;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.contact-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 10px;
+  margin-left:10px ;
+}
+
+
+
+.separator-line {
+  margin-top: 40px;
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  width: 100%;
+}
+
+.support-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  font-size: 14px;
+  color: #333;
+  padding: 0 20px;
+}
+
+.support-text {
+  text-align: left;
+}
+
+.support-phone {
+  font-weight: bold;
+  text-align: right;
+}
+
+
+
+
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.dx-button {
+  background-color: #004d99 !important; 
+  color: #fff !important;
+  font-weight: bold;
+  border-radius: 8px;
+  width: 100%;
+}
+
+
+.dx-button:hover {
+  background-color: #005a8d !important;
+}
+
+
+.dx-texteditor-input {
+  font-size: 16px;
+}
+
+.dx-field-label {
+  font-weight: 500;
+  color: #444;
+}
+.password-conditions {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  font-size: 0.9rem;
+  color: #999;
+}
+
+.password-conditions li::before {
+  content: "❌ ";
+  color: red;
+}
+
+.password-conditions li.valid {
+  color: green;
+}
+
+.password-conditions li.valid::before {
+  content: "✔ ";
+}
+.dx-texteditor-input {
+  padding-right: 30px; 
+}
+
+
+

@@ -1,0 +1,57 @@
+.titre {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #004c97;
+}
+
+.notif-card {
+  background-color: #f9f9f9;
+  border-left: 6px solid #ccc;
+  padding: 16px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+}
+
+.notif-card.alerte {
+  border-left-color: #f44336;
+}
+
+.notif-card.offre {
+  border-left-color: #4caf50;
+}
+
+.notif-card.rappel {
+  border-left-color: #2196f3;
+}
+
+.notif-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.icon {
+  font-size: 24px;
+}
+
+.date {
+  font-size: 12px;
+  color: #777;
+  margin: 0;
+}
+
+.message {
+  margin-top: 8px;
+  color: #333;
+}
+
+.clear-all {
+  margin-top: 20px;
+}
+
+.vide-message {
+  color: #999;
+  font-style: italic;
+}

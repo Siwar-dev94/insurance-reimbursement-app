@@ -1,0 +1,20 @@
+<div class="profil-box">
+  <h3>Profil du client</h3>
+  <p><strong>Nom:</strong> {{ client.nom }}</p>
+  <p><strong>Prénom:</strong> {{ client.prenom }}</p>
+  <p><strong>CIN:</strong> {{ client.cin }}</p>
+  <p><strong>Date de Naissance:</strong> {{ client.dateNaissance }}</p>
+  <p><strong>Adresse:</strong> {{ client.adresse }}</p>
+  <p><strong>Téléphone:</strong> {{ client.telephone }}</p>
+
+  <dx-button
+    text="Modifier mes infos"
+    type="normal"
+    stylingMode="outlined"
+    (onClick)="requestEdit()"
+    style="margin-top: 15px;"
+  ></dx-button>
+</div>
+
+
+

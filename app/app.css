@@ -1,0 +1,471 @@
+/* --- Wrapper général --- */
+.content-wrapper {
+ min-height: 100vh;
+ display: flex;
+ flex-direction: column;
+
+}
+
+/* --- Barre info en haut --- */
+.info-bar {
+ height: 60px;
+ background-color: #004d99;
+ color: white;
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ padding: 0 20px;
+ font-weight: bold;
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ z-index: 1000;
+}
+
+/* --- Détails assurance/admin --- */
+.assurance-info,
+.admin-info {
+ display: flex;
+ align-items: center;
+ gap: 10px;
+}
+
+.admin-details {
+ display: flex;
+ flex-direction: column;
+ line-height: 1.2;
+}
+
+.assurance-info img,
+.admin-info img {
+ width: 40px;
+ height: 40px;
+ border-radius: 50%;
+ object-fit: cover;
+ border: 2px solid white;
+}
+
+/* --- Contenu principal --- */
+.content {
+ margin-left: 240px;
+ margin-top: 70px;
+ padding: 20px;
+background: none !important;
+ border-radius: 12px;
+ min-height: calc(100vh - 70px); /* couvrir tout sauf la top-bar */
+ width: calc(100% - 260px); /* couvrir largeur restante après le menu */
+ box-sizing: border-box;
+ color: #004d99;
+
+
+   
+ 
+}
+
+
+
+
+/* --- TreeView fixe --- */
+.fixed-tree {
+ position: fixed;
+ top: 60px;
+ left: 0;
+ height: calc(100vh - 60px);
+ width: 240px;
+ 
+ background: linear-gradient(180deg, #ffffff 0%, #f4f7fb 100%);
+ 
+
+
+
+
+ padding: 15px;
+ overflow-y: auto;
+ border-radius: 0 12px 12px 0;
+ box-shadow: 2px 0 12px rgba(0, 0, 0, 0.08);
+ z-index: 900;
+ 
+}
+
+/* --- Items du TreeView (DevExtreme structure) --- */
+.fixed-tree .dx-treeview-node {
+ margin-bottom: 8px;
+}
+
+/* TreeView items */
+.fixed-tree .dx-treeview-item {
+ border-radius: 10px;
+ padding: 12px 16px;
+ display: flex;
+ align-items: center;
+ gap: 10px;
+ background: #e2e4e6;
+ color: #004d99;
+ font-weight: 600;
+ cursor: pointer;
+ transition: all 0.3s ease;
+ box-shadow: inset 0 0 4px rgba(0,0,0,0.03);
+}
+
+/* Icônes à gauche */
+.dx-treeview-item .dx-icon {
+ font-size: 18px;
+ color: #004d99;
+ transition: color 0.3s ease;
+}
+
+.fixed-tree .dx-treeview-item:hover {
+ background: linear-gradient(90deg, #36d1dc 0%, #5b86e5 100%);
+ color: white;
+ transform: translateX(6px);
+ box-shadow: 0 4px 10px rgba(91,134,229,0.3);
+}
+
+.dx-treeview-item:hover .dx-icon {
+ color: white;
+}
+
+
+/* Actif (sélectionné) */
+
+.fixed-tree .dx-state-selected {
+ background: linear-gradient(90deg, #004d99 0%, #1976d2 100%) !important;
+ color: white !important;
+ font-weight: 700;
+ box-shadow: 0 6px 15px rgba(0, 77, 153, 0.5);
+}
+.dx-treeview-item.dx-state-selected .dx-icon {
+ color: white;
+}
+
+/* --- Carte Admin --- */
+.admin-card {
+ position: absolute;
+ top: 70px;
+ right: 20px;
+ padding: 20px;
+width: 300px;
+background: rgba(255,255,255,0.95); /* fond semi-transparent */
+border-radius: 12px;
+box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+z-index: 1050;
+}
+
+.admin-card-photo {
+display: block;
+width: 80px;
+height: 80px;
+margin: 0 auto 15px auto;
+object-fit: cover;
+border-radius: 50%;
+border: 3px solid #004d99;
+}
+
+/* Buttons */
+dx-button {
+margin: 5px 0;
+}
+
+.admin-info dx-button {
+margin-left: 10px;
+background: rgba(255,255,255,0.2);
+border-radius: 6px;
+padding: 2px;
+display: inline-flex;
+align-items: center;
+color: white;
+}
+
+.admin-info dx-button:hover {
+background: rgba(255,255,255,0.4);
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+.fixed-tree { display: none; }
+.content { margin-left: 0; }
+.admin-card { right: 10px; width: 90%; }
+} 
+.photo-upload {
+text-align: center;
+margin: 10px 0;
+}
+.photo-upload input {
+margin-top: 10px;
+}
+
+.company-branding {
+display: flex;
+flex-direction: column;
+gap: 2px;
+margin-left: 5px;
+}
+
+/* Nom principal de l'assurance */
+.company-name {
+font-size: 24px;
+font-weight: 700;
+color: white;
+text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+letter-spacing: 0.8px;
+position: relative;
+ line-height: 1;
+}
+
+/* Effet de soulignement animé sous le nom */
+.company-name::after {
+ content: '';
+ position: absolute;
+ bottom: -2px;
+ left: 0;
+ width: 0;
+ height: 2px;
+ background: linear-gradient(90deg, #00d4ff, #0066cc);
+ border-radius: 1px;
+ transition: width 0.3s ease;
+}
+
+.company-name:hover::after {
+ width: 80%;
+}
+
+/* Tagline/slogan */
+.company-tagline {
+ font-size: 12px;
+ color: rgba(255, 255, 255, 0.85);
+ font-weight: 400;
+ font-style: italic;
+ letter-spacing: 0.3px;
+ line-height: 1;
+ margin-top: 1px;
+}
+
+/* Point décoratif avant le tagline */
+.company-tagline::before {
+ content: '●';
+ color: #00ff88;
+ margin-right: 6px;
+ font-size: 10px;
+ animation: pulse 2s infinite;
+}
+
+/* Animation du point */
+@keyframes pulse {
+ 0%, 100% { opacity: 1; }
+ 50% { opacity: 0.5; }
+}
+
+/* ===============================================
+ VARIANTES DE STYLE
+ =============================================== */
+
+/* Version avec effet néon (optionnel) */
+.company-name.neon-effect {
+ text-shadow: 
+  0 0 5px rgba(0, 212, 255, 0.5),
+  0 0 10px rgba(0, 212, 255, 0.3),
+  0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Version avec badge moderne */
+.company-name.badge-style {
+ background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+ padding: 4px 12px;
+ border-radius: 15px;
+ border: 1px solid rgba(255,255,255,0.2);
+ backdrop-filter: blur(10px);
+}
+
+/* ===============================================
+ RESPONSIVE DESIGN
+ =============================================== */
+
+@media (max-width: 768px) {
+ .company-name {
+  font-size: 20px;
+  letter-spacing: 0.5px;
+ }
+ 
+ .company-tagline {
+  font-size: 11px;
+  display: none; /* Masquer le tagline sur mobile */
+ }
+}
+
+@media (max-width: 480px) {
+ .company-name {
+  font-size: 18px;
+ }
+ 
+ .company-branding {
+  margin-left: 8px;
+ }
+}
+
+/* ===============================================
+ ANIMATION D'ENTRÉE
+ =============================================== */
+
+.company-branding {
+ animation: slideInLeft 0.8s ease-out 0.2s both;
+}
+
+@keyframes slideInLeft {
+ from {
+  transform: translateX(-30px);
+  opacity: 0;
+ }
+ to {
+  transform: translateX(0);
+  opacity: 1;
+ }
+}
+
+
+
+
+
+/* ===============================================
+ STYLES POUR LES INFOS ADMIN - MÊME STYLE QUE LE NOM D'ASSURANCE
+ =============================================== */
+
+/* Conteneur des détails admin */
+.admin-details {
+ display: flex;
+ flex-direction: column;
+ gap: 2px;
+ line-height: 1;
+ margin-left: 5px;
+}
+
+/* Nom de l'admin - Style principal comme company-name */
+.admin-details span:first-child,
+.admin-name {
+ font-size: 18px;
+ font-weight: 700;
+ color: white;
+ text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+ letter-spacing: 0.6px;
+ position: relative;
+ line-height: 1;
+}
+
+/* Effet de soulignement animé sous le nom admin */
+.admin-details span:first-child::after,
+.admin-name::after {
+ content: '';
+ position: absolute;
+ bottom: -2px; left: 0; width: 0; height: 2px; background: linear-gradient(90deg, #00d4ff, #0066cc); border-radius: 1px; transition: width 0.3s ease;}
+
+.admin-details span:first-child:hover::after,
+.admin-name:hover::after {
+ width: 70%;}
+
+/* Fonction de l'admin - Style tagline */
+.admin-details span:last-child,
+.admin-role {
+ font-size: 11px; color: rgba(255, 255, 255, 0.85); font-weight: 400; font-style: italic; letter-spacing: 0.3px; line-height: 1; margin-top: 1px;}
+
+/* Point décoratif avant la fonction */
+.admin-details span:last-child::before,
+.admin-role::before {
+ content: '●';
+ color: #00ff88;
+ margin-right: 6px;
+ font-size: 8px;
+ animation: pulse 2s infinite;
+}
+
+/* Animation du point pour admin */
+@keyframes pulse {
+ 0%, 100% { opacity: 1; }
+ 50% { opacity: 0.5; }
+}
+
+/* ===============================================
+  EFFET HOVER SUR LA SECTION ADMIN COMPLÈTE
+ =============================================== */
+
+.admin-info:hover .admin-details span:first-child,
+.admin-info:hover .admin-name {
+ transform: translateY(-1px);
+ text-shadow: 
+  0 0 8px rgba(0, 212, 255, 0.4),
+  0 3px 6px rgba(0, 0, 0, 0.4);
+}
+
+.admin-info:hover .admin-details span:last-child,
+.admin-info:hover .admin-role {
+ color: rgba(255, 255, 255, 0.95);
+ transform: translateY(-1px);
+}
+
+/* ===============================================
+  RESPONSIVE POUR LES INFOS ADMIN
+ =============================================== */
+
+@media (max-width: 768px) {
+ .admin-details span:first-child,
+ .admin-name {
+  font-size: 16px;
+  letter-spacing: 0.4px;
+ }
+ 
+ .admin-details span:last-child,
+ .admin-role {
+  font-size: 10px;
+  display: none; /* Masquer la fonction sur mobile */
+ }
+}
+
+@media (max-width: 480px) {
+ .admin-details span:first-child,
+ .admin-name {
+  font-size: 14px;
+ }
+ 
+ .admin-details {
+  margin-left: 8px;
+ }
+}
+
+/* ===============================================
+  ANIMATION D'ENTRÉE POUR LES INFOS ADMIN
+ =============================================== */
+
+.admin-details {
+ animation: slideInRight 0.8s ease-out 0.4s both;
+}
+
+@keyframes slideInRight {
+ from {
+  transform: translateX(30px);
+  opacity: 0;
+ }
+ to {
+  transform: translateX(0);
+  opacity: 1;
+ }
+}
+
+/* ===============================================
+  VARIANTES OPTIONNELLES POUR ADMIN
+ =============================================== */
+
+/* Version avec effet néon pour le nom admin */
+.admin-name.neon-effect {
+ text-shadow: 
+  0 0 5px rgba(0, 212, 255, 0.5),
+  0 0 10px rgba(0, 212, 255, 0.3),
+  0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Version badge pour le nom admin */
+.admin-name.badge-style {
+ background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+ padding: 3px 10px;
+ border-radius: 12px;
+ border: 1px solid rgba(255,255,255,0.2);
+ backdrop-filter: blur(10px);
+}

@@ -1,0 +1,89 @@
+.profil-edit-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 40px;
+  background: linear-gradient(145deg, #f0f4f8, #ffffff);
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0, 76, 151, 0.25);
+}
+
+.photo-upload {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.photo-preview {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 3px solid #004C97;
+  object-fit: cover;
+  box-shadow: 0 6px 20px rgba(0, 76, 151, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.photo-preview:hover {
+  transform: scale(1.08);
+  box-shadow: 0 10px 25px rgba(0, 76, 151, 0.4);
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+::ng-deep dx-form .dx-field-label {
+  font-weight: 600;
+  color: #004C97;
+  font-size: 15px;
+}
+
+::ng-deep dx-text-box .dx-texteditor-input,
+::ng-deep dx-date-box .dx-texteditor-input {
+  border-radius: 8px;
+  border: 1px solid #b3c7e6;
+  padding: 10px;
+  background: #f5faff;
+  transition: all 0.3s;
+}
+
+::ng-deep dx-text-box .dx-texteditor-input:focus,
+::ng-deep dx-date-box .dx-texteditor-input:focus {
+  border-color: #0066cc;
+  box-shadow: 0 0 10px rgba(0,102,204,0.2);
+  background: #ffffff;
+}
+::ng-deep .dx-button-success {
+  background: #004C97;
+  border: 2px solid #004C97;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 12px 35px;
+  border-radius: 10px;
+  transition: all 0.3s;
+  box-shadow: 0 5px 15px rgba(0,76,151,0.3);
+}
+
+::ng-deep .dx-button-success:hover {
+  background: #0066cc;
+  border-color: #0066cc;
+  box-shadow: 0 8px 20px rgba(0,102,204,0.4);
+}
+
+::ng-deep .dx-button-normal {
+  background: #e6f0fa;
+  border: 2px solid #b3c7e6;
+  color: #004C97;
+  font-weight: 600;
+  padding: 12px 35px;
+  border-radius: 10px;
+}
+
+::ng-deep .dx-button-normal:hover {
+  background: #d0e2f8;
+  border-color: #99bce6;
+  box-shadow: 0 5px 15px rgba(0,76,151,0.2);
+}

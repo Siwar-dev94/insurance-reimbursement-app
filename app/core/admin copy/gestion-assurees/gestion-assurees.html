@@ -1,0 +1,101 @@
+
+
+<dx-data-grid
+  [dataSource]="assures"
+   [paging]="{ pageSize: 5 }"
+  [filterRow]="{ visible: true }"
+   [showColumnHeaders]="true" 
+    [showBorders]="true"
+  [columnAutoWidth]="true"
+ >
+  <dxi-column dataField="id" caption="ID" [allowEditing]="false"></dxi-column>
+  <dxi-column dataField="nom" caption="Nom"></dxi-column>
+  <dxi-column dataField="prenom" caption="Prénom"></dxi-column>
+  <dxi-column dataField="dateNaissance" caption="Date de naissance"  dataType="date"></dxi-column>
+  <dxi-column dataField="email" caption="Email"></dxi-column>
+
+  <dxi-column dataField="documents" caption="Document"  ></dxi-column>
+  
+  <dxi-column type="buttons">
+  <dxi-button
+    hint="Modifier"
+    icon="edit"
+    [onClick]="editAssure"
+  ></dxi-button>
+  <dxi-button
+    hint="Supprimer"
+    icon="trash"
+    [onClick]="deleteAssure"
+  ></dxi-button>
+</dxi-column>
+
+</dx-data-grid>
+
+
+<dx-speed-dial-action
+  icon="add"
+  hint="Ajouter un assuré"
+  (onClick)="openForm('add')"
+  position="bottom right"
+>
+</dx-speed-dial-action>
+
+
+<dx-popup
+  [(visible)]="popupVisible"
+  [width]="400"
+  height="auto"
+
+  [showTitle]="true"
+  [title]="formMode === 'add' ? 'Ajouter un assuré' : 'Modifier un assuré'"
+  [dragEnabled]="true"
+  [closeOnOutsideClick]="true"
+>
+  <dx-form
+    [formData]="currentAssure"
+    [colCount]="1"
+    (onFieldDataChanged)="onFieldChange($event)"
+  >
+    <dxi-item dataField="nom" editorType="dxTextBox" [isRequired]="true"></dxi-item>
+    <dxi-item dataField="prenom" editorType="dxTextBox" [isRequired]="true"></dxi-item>
+    <dxi-item dataField="dateNaissance" editorType="dxDateBox" [isRequired]="true"></dxi-item>
+    <dxi-item dataField="email" editorType="dxTextBox" [isRequired]="true"></dxi-item>
+   
+    <dxi-item>
+  <dx-file-uploader
+    selectButtonText="Ajouter des fichiers"
+    labelText="Documents"
+    [multiple]="false"
+    accept="image/*"
+    uploadMode="useForm"
+    (onValueChanged)="onFilesSelected($event)"
+  ></dx-file-uploader>
+</dxi-item>
+
+     <dxi-item>
+ <div *ngIf="currentAssure.documents">
+ 
+    <span>{{ currentAssure.documents}}</span>
+    <dx-button
+      icon="trash"
+      hint="Supprimer"
+      type="danger"
+      stylingMode="text"
+      (onClick)="removeDocument()"
+    ></dx-button>
+  </div>
+
+
+</dxi-item>
+
+
+
+    <dxi-item>
+      <dx-button text="Sauvegarder" type="success" stylingMode="contained" (onClick)="saveAssure()"></dx-button>
+      <dx-button text="Annuler" type="normal" stylingMode="outlined" (onClick)="popupVisible = false"></dx-button>
+    </dxi-item>
+
+    
+
+  </dx-form>
+</dx-popup>

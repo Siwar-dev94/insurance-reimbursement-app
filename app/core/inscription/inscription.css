@@ -1,0 +1,126 @@
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to bottom right, #f0f4f8, #e3f2fd);
+  color: #004481;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+}
+
+
+.form-container {
+  width: 100%;
+  max-width: 900px;
+  background: #ffffff;
+  padding: 50px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 76, 151, 0.2);
+  border: 1px solid #b3d1f1;
+}
+
+
+.form-container h2 {
+  text-align: center;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  color: #004481;
+  letter-spacing: 0.5px;
+}
+
+/* 🏷️ Labels */
+::ng-deep .dx-field-item-label-text {
+  color: #004481;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+/* 🧩 Espacement entre les champs */
+::ng-deep .dx-item-content {
+  margin-bottom: 20px;
+}
+
+/* ✏️ Champs input */
+::ng-deep .dx-texteditor-input {
+  padding: 12px;
+  font-size: 15px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  color: #004481;
+}
+
+/* 🧱 Bordures des champs */
+::ng-deep .dx-texteditor {
+  border: 1.5px solid #b3d1f1;
+  border-radius: 10px;
+  background-color: #ffffff;
+  transition: 0.3s ease-in-out;
+}
+
+::ng-deep .dx-texteditor:hover {
+  border-color: #007acc;
+  box-shadow: 0 0 8px rgba(0, 122, 204, 0.3);
+}
+
+/* 📆 SelectBox, DateBox... mêmes styles */
+::ng-deep .dx-selectbox,
+::ng-deep .dx-datebox,
+::ng-deep .dx-textbox {
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+/* ✅ Bouton */
+::ng-deep .dx-button {
+  width: 100%;
+  font-size: 16px;
+  padding: 14px;
+  margin-top: 30px;
+  border-radius: 10px;
+  font-weight: bold;
+  background: linear-gradient(to right, #007acc, #005fa3);
+  color: white;
+  box-shadow: 0 5px 15px rgba(0, 122, 204, 0.3);
+  transition: 0.3s ease-in-out;
+}
+
+/* 🖱️ Hover du bouton */
+::ng-deep .dx-button:hover {
+  background: linear-gradient(to right, #3399ff, #007acc);
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 122, 204, 0.5);
+}
+
+/* 📱 Responsive */
+@media (max-width: 768px) {
+  .form-container {
+    margin: 20px;
+    padding: 30px;
+  }
+
+ 
+}
+
+::ng-deep .dx-button {
+  width: 100%;
+  font-size: 16px;
+  padding: 14px;
+  margin-top: 30px;
+  border-radius: 10px;
+  font-weight: bold;
+  background: linear-gradient(to right, #007acc, #005fa3); /* gradient */
+  color: white; /* couleur du texte */
+  box-shadow: 0 5px 15px rgba(0, 122, 204, 0.3);
+  transition: 0.3s ease-in-out;
+}
+
+::ng-deep .dx-button:hover {
+  background: linear-gradient(to right, #3399ff, #007acc);
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 122, 204, 0.5);
+}
+

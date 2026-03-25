@@ -1,0 +1,64 @@
+
+<h2>⚙️ Paramètres</h2>
+
+
+<div *ngIf="etape === 'verif'">
+  <dx-text-box [(value)]="telephone" placeholder="Votre numéro de téléphone"></dx-text-box>
+  <dx-button text="📤 Envoyer le code" (onClick)="envoyerCode()" class="mt-2"></dx-button>
+</div>
+
+
+<div *ngIf="etape === 'code'">
+  <p>Un code vous a été envoyé. Veuillez le saisir :</p>
+  <dx-text-box [(value)]="codeSaisi" placeholder="Code à 4 chiffres"></dx-text-box>
+  <dx-button text="✅ Vérifier le code" (onClick)="verifierCode()" class="mt-2"></dx-button>
+
+  <p *ngIf="!canResend">⏳ Attendez {{ timer }}s pour renvoyer</p>
+  <dx-button *ngIf="canResend" text="🔄 Renvoyer le code" (onClick)="resendCode()" stylingMode="text"></dx-button>
+</div>
+
+
+<div *ngIf="etape === 'change'">
+  <dx-text-box [(value)]="nouveauMotDePasse" placeholder="Nouveau mot de passe" mode="password"></dx-text-box>
+  <dx-text-box [(value)]="confirmMotDePasse" placeholder="Confirmer le mot de passe" mode="password"></dx-text-box>
+  <dx-button text="🔒 Confirmer le changement" (onClick)="changerMotDePasse()" class="mt-2"></dx-button>
+</div>
+
+<h3 class="mt-4">🔔 Préférences</h3>
+<dx-form [formData]="parametres">
+  <dxi-item dataField="notificationsEmail" editorType="dxCheckBox">
+    <dxo-label text="Recevoir les notifications par email"></dxo-label>
+  </dxi-item>
+
+  <dxi-item dataField="notificationsSMS" editorType="dxCheckBox">
+    <dxo-label text="Recevoir les notifications par SMS"></dxo-label>
+  </dxi-item>
+
+
+</dx-form>
+
+
+<h3 class="section-title">📜 Historique des connexions</h3>
+
+<div class="historique-container" *ngIf="historiqueConnexions.length > 0; else aucun">
+  <div class="connexion-card" *ngFor="let date of historiqueConnexions">
+    <span class="connexion-icon">🕒</span>
+    <span class="connexion-date">{{ date }}</span>
+  </div>
+</div>
+
+<ng-template #aucun>
+  <p class="aucun-message">Aucune connexion enregistrée.</p>
+</ng-template>
+
+<dx-button
+  text="🗑️ Effacer l’historique"
+  type="danger"
+  stylingMode="text"
+  class="clear-button"
+  (onClick)="resetHistorique()"
+></dx-button>
+
+
+<dx-button text="🚪 Déconnexion" icon="runner" type="danger" (onClick)="logout()"></dx-button>
+  
